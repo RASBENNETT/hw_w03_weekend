@@ -20,6 +20,9 @@ film4 = Film.new( { 'title' =>  'Star Wars IV A New Hope', 'price' => '10' } )
 film4.save()
 
 
+film1.price = '15'
+film1.update()
+
 
 binding.pry
 nil

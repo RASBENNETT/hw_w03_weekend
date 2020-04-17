@@ -3,7 +3,7 @@ require_relative('../db/sql_runner')
 class Film
 
     attr_reader :id
-    attr_accessor :title, :funds
+    attr_accessor :title, :price
 
     def initialize( options )
         @id = options['id'] if options['id']
@@ -22,6 +22,13 @@ class Film
         @id = film['id'].to_i
     end
 
+    def update()
+        sql = "UPDATE films 
+        SET (title, price) = ($1, $2)
+        WHERE id = $3"
+        values = [@title, @price, @id]
+        SqlRunner.run(sql, values)
+    end
 
 
 end
