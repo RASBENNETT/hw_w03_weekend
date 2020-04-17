@@ -1,6 +1,8 @@
 require('pry')
 require_relative('model/film.rb')
 
+Film.delete_all()
+
 film1 = Film.new( { 'title' =>  'Mary Poppins', 'price' => '10' } )
 film1.save()
 

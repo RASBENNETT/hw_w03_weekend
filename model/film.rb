@@ -30,5 +30,21 @@ class Film
         SqlRunner.run(sql, values)
     end
 
+    #### CLASS METHODS ####
+
+    def self.all()
+        sql = "SELECT * FROM FILMS"
+        films = SqlRunner.run(sql)
+        return self.map_items(films)
+    end
+
+    def self.delete_all()
+        sql = "DELETE FROM films"
+        SqlRunner.run(sql)
+    end
+
+    def self.map_items( films )
+        return films.map { |film| Film.new(film) }
+    end
 
 end
