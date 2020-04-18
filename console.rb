@@ -34,6 +34,9 @@ customer2 = Customer.new( { 'name' => 'Elvis', 'funds' => '100' } )
 customer2.save()
 
 
+customer2.funds = '200'
+customer2.update()
+
 
 binding.pry
 nil
