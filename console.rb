@@ -3,6 +3,9 @@ require_relative('model/film.rb')
 require_relative('model/customer')
 require_relative('model/ticket')
 
+## DELETE TABLES (REFFERENCED FIRST)
+
+Ticket.delete_all()
 Film.delete_all()
 Customer.delete_all()
 
@@ -70,14 +73,11 @@ ticket1.update()
 
 
 
-
-
-
-
 ## ASSIGN VARIABLES TO LIST ALL RESULT ##
 
 films = Film.all()
 customers = Customer.all()
+tickets = Ticket.all()
 
 
 ## PRY ##
