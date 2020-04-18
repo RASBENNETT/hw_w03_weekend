@@ -1,5 +1,6 @@
 require('pry')
 require_relative('model/film.rb')
+require_relative('model/customer')
 
 Film.delete_all()
 
@@ -24,6 +25,14 @@ film4.save()
 
 film1.price = '15'
 film1.update()
+
+
+customer1 = Customer.new( { 'name' => 'Annie', 'funds' => '600' } )
+customer1.save()
+
+customer2 = Customer.new( { 'name' => 'Elvis', 'funds' => '100' } )
+customer2.save()
+
 
 
 binding.pry
