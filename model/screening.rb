@@ -7,7 +7,8 @@ class Screening
 
     def initialize( options )
         @id = options['id'] if options['id']
-        @film_id = options['film_id']
+        @film_id = options['film_id'] if options['film_id']
+        @title = options['title'] if options['title']
         @show_time = options['show_time']
     end
 
@@ -33,7 +34,9 @@ class Screening
     ### CLASS METHODS ###
 
     def self.all()
-        sql = "SELECT * FROM screenings"
+        sql = "SELECT films.title, screenings.show_time FROM films
+        INNER JOIN screenings
+        ON screenings.film_id = films.id;"
         screenings = SqlRunner.run(sql)
         return self.map_items(screenings)
     end
@@ -47,6 +50,12 @@ class Screening
         return screenings.map { |screening| Screening.new(screening) }
     end
 
+    def self.most_popular_time()
+        screenings = self.all
+        show_times = screenings.map {|s| s.show_time} 
+        p show_times
+        return show_times.mode
+    end
 
 
 end
