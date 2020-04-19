@@ -41,24 +41,28 @@ customer3.save()
 
 ## INITIALIZE TICEKTS ##
 
-ticket1 = Ticket.new( { 'customer_id' => customer1.id, 'film_id' => film1.id } )
-ticket1.save()
+# ticket1 = Ticket.new( { 'customer_id' => customer1.id, 'film_id' => film1.id } )
+# ticket1.save()
 
-ticket2 = Ticket.new( { 'customer_id' => customer2.id, 'film_id' => film2.id } )
-ticket2.save()
+# ticket2 = Ticket.new( { 'customer_id' => customer2.id, 'film_id' => film2.id } )
+# ticket2.save()
 
-ticket3 = Ticket.new( { 'customer_id' => customer2.id, 'film_id' => film3.id } )
-ticket3.save()
+# ticket3 = Ticket.new( { 'customer_id' => customer2.id, 'film_id' => film3.id } )
+# ticket3.save()
 
-ticket4 = Ticket.new( { 'customer_id' => customer3.id, 'film_id' => film1.id } )
-ticket4.save()
+# ticket4 = Ticket.new( { 'customer_id' => customer3.id, 'film_id' => film1.id } )
+# ticket4.save()
 
-ticket5 = Ticket.new( { 'customer_id' => customer3.id, 'film_id' => film2.id } )
-ticket5.save()
-
-
+# ticket5 = Ticket.new( { 'customer_id' => customer3.id, 'film_id' => film2.id } )
+# ticket5.save()
 
 
+
+customer1.buy_ticket_for(film1)
+customer1.update()
+
+customer1.buy_ticket_for(film2)
+customer1.update()
 
 
 
@@ -76,8 +80,8 @@ film1.update()
 customer2.funds = '200'
 customer2.update()
 
-ticket1.film_id = film4.id
-ticket1.update()
+# ticket1.film_id = film4.id
+# ticket1.update()
 
 
 
