@@ -48,6 +48,10 @@ class Film
         return Ticket.map_items(films)
     end
 
+    def attendees()
+        return customers().length
+    end
+
     #### CLASS METHODS ####
 
     def self.all()

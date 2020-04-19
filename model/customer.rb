@@ -3,12 +3,13 @@ require_relative('../db/sql_runner.rb')
 class Customer
 
     attr_reader :id
-    attr_accessor :name, :funds
+    attr_accessor :name, :funds, :no_of_tickets
 
     def initialize( options )
         @id = options['id'] if options['id']
         @name = options['name']
         @funds = options['funds']
+        @no_of_tickets = 0
     end
 
     def save()
@@ -54,8 +55,10 @@ class Customer
        funds = @funds.to_i
        price = film.price.to_i
        @funds = (funds - price).to_s
+       @no_of_tickets += 1
        update()
     end
+
     ### CLASS METHODS ###
 
     def self.all()

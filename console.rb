@@ -59,15 +59,8 @@ customer3.save()
 
 
 customer1.buy_ticket_for(film1)
-customer1.update()
-
+customer2.buy_ticket_for(film1)
 customer1.buy_ticket_for(film2)
-customer1.update()
-
-
-
-
-
 
 
 
