@@ -2,10 +2,12 @@ require('pry')
 require_relative('model/film.rb')
 require_relative('model/customer')
 require_relative('model/ticket')
+require_relative('model/screening')
 
 ## DELETE TABLES (REFFERENCED FIRST)
 
 Ticket.delete_all()
+Screening.delete_all()
 Film.delete_all()
 Customer.delete_all()
 
@@ -26,6 +28,15 @@ film3.save()
 film4.save()
 film5.save()
 film6.save()
+
+## INITIALIZE SCREENING ##
+
+screening1  = Screening.new( { 'film_id' => film1.id, 'show_time' => '15:00'})
+screening1.save()
+
+screening2  = Screening.new( { 'film_id' => film1.id, 'show_time' => '18:00'})
+screening2.save()
+
 
 ## INITIALIZE CUSTOMERS ##
 
@@ -65,7 +76,7 @@ customer1.buy_ticket_for(film2)
 films = Film.all()
 customers = Customer.all()
 tickets = Ticket.all()
-
+screenings = Screening.all()
 
 ## PRY ##
 binding.pry
